@@ -1,15 +1,17 @@
-uint8_t data[8] = {0x02, 0, 0, 0, 0, 0, 0, 0};
+uint8_t data[3] = {0, 0, 0};
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(1000000);
 }
 
 void loop() {
-  data[1] = 0x01;
-  Serial.write(data, 8);
-  delay(250);
+  data[0] = 0x1;
+  Serial.write(data, 3);
+  Serial.flush();
+  delay(5);
 
-  data[1] = 0;
-  Serial.write(data, 8);
-  delay(250);
+  data[0] = 0;
+  Serial.write(data, 3);
+  Serial.flush();
+  delay(5);
 }
